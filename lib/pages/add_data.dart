@@ -14,12 +14,9 @@ class AddData extends StatefulWidget {
 
 class _AddDataState extends State<AddData> {
   int? sendStatusCode;
-
   final _formKey = GlobalKey<FormState>();
-
   TextEditingController nameController = TextEditingController();
   TextEditingController jobController = TextEditingController();
-
   OutlineInputBorder borderDesign(Color color) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
@@ -44,13 +41,6 @@ class _AddDataState extends State<AddData> {
       isLoading = false;
     } on DioError catch (e) {
       isLoading = true;
-      if (e.type == DioErrorType.connectTimeout) {
-        setState(() {
-          isError = true;
-        });
-      }
-
-      print(isLoading);
     }
   }
 
